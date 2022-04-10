@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
@@ -27,7 +27,12 @@ function App() {
       <div className="wrapper">
         <div className="card">
           <div className="product-canvas">
-            <Canvas>{/* 3d model */}</Canvas>
+            <Canvas>
+              <Suspense fallback={null}>
+                <ambientLight />
+                <Model />
+              </Suspense>
+            </Canvas>
           </div>
           <h2>Color chooser</h2>
           <div className="colors">
