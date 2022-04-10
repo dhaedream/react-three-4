@@ -38,6 +38,11 @@ function App() {
                   castShadow
                 />
                 <Model />
+                <OrbitControls
+                  enablePan={true}
+                  enableZoom={true}
+                  enableRotate={true}
+                />
               </Suspense>
             </Canvas>
           </div>
