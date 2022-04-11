@@ -53,7 +53,10 @@ function Model({ ...props }) {
 }
 
 function App() {
-  const ref = useRef();
+  const [mesh, setMesh] = useState("#ffffff");
+  const [stripes, setStripes] = useState("#ffffff");
+  const [sole, setSole] = useState("#ffffff");
+
   return (
     <div className="App">
       <div className="wrapper">
@@ -72,9 +75,9 @@ function App() {
                 {/* Manually passing in props */}
                 <Model
                   customColors={{
-                    mesh: "black",
-                    stripes: "grey",
-                    sole: "white",
+                    mesh: mesh,
+                    stripes: stripes,
+                    sole: sole,
                   }}
                 />
                 <OrbitControls
@@ -88,17 +91,35 @@ function App() {
           <h2>Color chooser</h2>
           <div className="colors">
             <div>
-              <input type="color" id="head" name="head" value="#e66465" />
-              <label for="head">Main</label>
+              <input
+                type="color"
+                id="mesh"
+                name="mesh"
+                value={mesh}
+                onChange={(e) => setMesh(e.target.value)}
+              />
+              <label for="mesh">Main</label>
             </div>
 
             <div>
-              <input type="color" id="body" name="body" value="#f6b73c" />
-              <label for="body">Stripes</label>
+              <input
+                type="color"
+                id="stripes"
+                name="stripes"
+                value={stripes}
+                onChange={(e) => setStripes(e.target.value)}
+              />
+              <label for="stripes">Stripes</label>
             </div>
             <div>
-              <input type="color" id="body" name="body" value="#f6b73c" />
-              <label for="body">Soles</label>
+              <input
+                type="color"
+                id="sole"
+                name="sole"
+                value={sole}
+                onChange={(e) => setSole(e.target.value)}
+              />
+              <label for="sole">Soles</label>
             </div>
           </div>
         </div>
