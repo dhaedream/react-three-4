@@ -16,7 +16,7 @@ function Model({ ...props }) {
       <mesh
         geometry={nodes.shoe_1.geometry}
         material={materials.mesh}
-        material-color={"lightblue"}
+        material-color={props.customColors.mesh}
       />
       <mesh
         geometry={nodes.shoe_2.geometry}
@@ -31,12 +31,12 @@ function Model({ ...props }) {
       <mesh
         geometry={nodes.shoe_4.geometry}
         material={materials.sole}
-        material-color={"yellow"}
+        material-color={props.customColors.sole}
       />
       <mesh
         geometry={nodes.shoe_5.geometry}
         material={materials.stripes}
-        material-color={"red"}
+        material-color={props.customColors.stripes}
       />
       <mesh
         geometry={nodes.shoe_6.geometry}
@@ -69,7 +69,14 @@ function App() {
                   position={[10, 15, 10]}
                   castShadow
                 />
-                <Model />
+                {/* Manually passing in props */}
+                <Model
+                  customColors={{
+                    mesh: "black",
+                    stripes: "grey",
+                    sole: "white",
+                  }}
+                />
                 <OrbitControls
                   enablePan={true}
                   enableZoom={true}
